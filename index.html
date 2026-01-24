@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluxion | Adaptive Operations Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05060b;
+      --panel: rgba(255, 255, 255, 0.04);
+      --card: rgba(255, 255, 255, 0.06);
+      --glow: radial-gradient(circle at 20% 20%, rgba(103, 216, 255, 0.25), transparent 35%),
+              radial-gradient(circle at 80% 0%, rgba(255, 181, 120, 0.22), transparent 30%);
+      --text: #eaf2ff;
+      --muted: #98a3b8;
+      --accent: #7df3c6;
+      --accent-2: #61b7ff;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      background-image: var(--glow);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 6, 11, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.35));
+      border-radius: 12px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+    nav a:hover { color: var(--text); opacity: 0.9; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--bg);
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: saturate(1.1); }
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+      box-shadow: none;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 22px 80px;
+      display: grid;
+      gap: 60px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+      gap: 36px;
+      padding: 26px;
+      background: linear-gradient(140deg, rgba(255, 255, 255, 0.05), rgba(29, 44, 70, 0.35));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      margin: 0 0 16px;
+      letter-spacing: -0.3px;
+    }
+    .hero p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .hero .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 22px;
+    }
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.15px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .stat .label { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+    .stat .value { font-family: "Space Grotesk"; font-size: 24px; font-weight: 600; }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: "Space Grotesk";
+      font-size: 26px;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 520px;
+      font-size: 15px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: transform 0.15s ease, border-color 0.2s ease;
+    }
+    .card:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.18); }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-family: "Space Grotesk";
+    }
+    .card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+      margin-top: 8px;
+    }
+
+    .panel {
+      padding: 22px;
+      border-radius: 18px;
+      background: linear-gradient(140deg, rgba(97, 183, 255, 0.14), rgba(125, 243, 198, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: center;
+      gap: 20px;
+    }
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-family: "Space Grotesk";
+    }
+    .panel p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 22px 50px;
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      nav { width: 100%; }
+      nav a { margin-left: 12px; }
+      .nav { padding: 14px 18px; }
+      main { padding: 46px 18px 70px; }
+      .hero { padding: 20px; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <a class="brand" href="#top">
+          <img src="logo.jpg" alt="Fluxion logo">
+          <span>Fluxion</span>
+        </a>
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#platform">Platform</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="btn" href="#contact">Launch Fluxion</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="tags">
+            <span class="tag">Operations Cloud</span>
+            <span class="tag">Realtime insights</span>
+            <span class="tag">Human-in-the-loop</span>
+          </div>
+          <h1 id="hero-title">Fluxion keeps your teams flowing with context-aware automation.</h1>
+          <p>Unify signals, decisions, and workflows into a single adaptive layer. Fluxion routes the right context to the right people, automates repetitive ops, and keeps every runbook auditable.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+            <a class="btn" href="#contact">Book a demo</a>
+            <a class="btn secondary" href="#platform">See how it works</a>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <div>
+              <h3>Purpose-built for living systems</h3>
+              <p>Plug in monitoring, ticketing, chat, and data sources. Fluxion creates a living map of your operations so every incident, deployment, or request has instant, trusted context.</p>
+              <div class="pill">Integrations: PagerDuty · Jira · Slack · GitHub · Datadog</div>
+            </div>
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="label">MTTR reduction</div>
+                <div class="value">-43%</div>
+              </div>
+              <div class="stat">
+                <div class="label">Automated tasks</div>
+                <div class="value">12k+/mo</div>
+              </div>
+              <div class="stat">
+                <div class="label">Confidence score</div>
+                <div class="value">99.2%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title" style="display:grid; gap:18px;">
+        <div class="section-head">
+          <h2 id="about-title">Why Fluxion</h2>
+          <p>Fluxion fuses observability, collaboration, and action into one surface. Your teams get reliable automation with clear guardrails, not a black box.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Context that stays fresh</h3>
+            <p>Dynamic knowledge graph keeps services, owners, runbooks, and dependencies linked so responders get instant clarity.</p>
+            <span class="pill">Owner lookups · Runbook recall</span>
+          </article>
+          <article class="card">
+            <h3>Safe automation</h3>
+            <p>Human-in-the-loop approvals with drift detection and rollback recipes make automation trustworthy by design.</p>
+            <span class="pill">Guardrails · Versioned actions</span>
+          </article>
+          <article class="card">
+            <h3>Measurable outcomes</h3>
+            <p>Measure operational fitness with live SLAs, MTTR insights, and adoption metrics for every team and service.</p>
+            <span class="pill">SLO/SLA · MTTR · Adoption</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="platform" aria-labelledby="platform-title" style="display:grid; gap:18px;">
+        <div class="section-head">
+          <h2 id="platform-title">Platform in motion</h2>
+          <p>Fluxion is an adaptive control plane that learns from every runbook run, incident, and deployment to keep operations flowing.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Signal intake</h3>
+            <p>Ingest alerts, tickets, chat, and CI/CD events into a unified event fabric with deduping and priority scoring.</p>
+            <span class="pill">Normalized events</span>
+          </article>
+          <article class="card">
+            <h3>Decision engine</h3>
+            <p>Route with policy, service metadata, and historical outcomes to assign owners, trigger automations, or request approvals.</p>
+            <span class="pill">Policy-driven routing</span>
+          </article>
+          <article class="card">
+            <h3>Execution layer</h3>
+            <p>Trigger actions in chat, tickets, and code with auditable trails, rollback options, and real-time status updates.</p>
+            <span class="pill">Auditable runs</span>
+          </article>
+          <article class="card">
+            <h3>Learning loop</h3>
+            <p>Continuously improves playbooks by capturing outcomes, annotating signals, and highlighting gaps in coverage.</p>
+            <span class="pill">Closed-loop feedback</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="solutions" aria-labelledby="solutions-title" style="display:grid; gap:18px;">
+        <div class="section-head">
+          <h2 id="solutions-title">Built for your teams</h2>
+          <p>From reliability crews to support leads, Fluxion keeps every team in sync with the same source of context and action.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Reliability</h3>
+            <p>Resolve incidents faster with instant ownership, live runbook steps, and automated remediation tickets.</p>
+            <span class="pill">PagerDuty · Slack · Jira</span>
+          </article>
+          <article class="card">
+            <h3>Platform</h3>
+            <p>Codify platform guardrails once and apply them everywhere: deploy gates, rollout checks, and service standards.</p>
+            <span class="pill">GitHub · Argo · Terraform</span>
+          </article>
+          <article class="card">
+            <h3>Support</h3>
+            <p>Surface customer context, previous fixes, and on-call paths directly inside tickets and chat.</p>
+            <span class="pill">Zendesk · Linear</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="panel">
+          <div>
+            <h3 id="contact-title">Ready to see Fluxion live?</h3>
+            <p>Schedule a demo to explore how Fluxion adapts to your stack, workflows, and compliance needs. We respond within one business day.</p>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn" href="mailto:hello@fluxion.dev">Book a demo</a>
+            <a class="btn secondary" href="#about">View capabilities</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="brand">
+            <img src="logo.jpg" alt="Fluxion logo">
+            <span>Fluxion</span>
+          </div>
+          <div style="margin-top:12px;">Adaptive operations cloud for teams that never stop shipping.</div>
+        </div>
+        <div>
+          <div><strong style="color:#fff; font-size:13px;">Company</strong></div>
+          <div>San Francisco · Remote-first</div>
+          <div>hello@fluxion.dev</div>
+        </div>
+        <div>
+          <div><strong style="color:#fff; font-size:13px;">Links</strong></div>
+          <div><a href="#platform" style="color:var(--muted); text-decoration:none;">Platform</a></div>
+          <div><a href="#solutions" style="color:var(--muted); text-decoration:none;">Solutions</a></div>
+          <div><a href="#contact" style="color:var(--muted); text-decoration:none;">Contact</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
