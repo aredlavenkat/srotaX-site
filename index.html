@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluxion | Adaptive Operations Cloud</title>
+  <title>SrotaX | Adaptive Operations Cloud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #05060b;
-      --panel: rgba(255, 255, 255, 0.04);
-      --card: rgba(255, 255, 255, 0.06);
-      --glow: radial-gradient(circle at 20% 20%, rgba(103, 216, 255, 0.25), transparent 35%),
-              radial-gradient(circle at 80% 0%, rgba(255, 181, 120, 0.22), transparent 30%);
-      --text: #eaf2ff;
-      --muted: #98a3b8;
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --card: #ffffff;
+      --glow: radial-gradient(circle at 18% 20%, rgba(24, 119, 242, 0.12), transparent 38%),
+              radial-gradient(circle at 78% 0%, rgba(97, 183, 255, 0.14), transparent 30%);
+      --text: #0f172a;
+      --muted: #475569;
       --accent: #7df3c6;
       --accent-2: #61b7ff;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      --border: rgba(15, 23, 42, 0.1);
+      --shadow: 0 18px 44px rgba(15, 23, 42, 0.12);
     }
 
     * { box-sizing: border-box; }
@@ -78,9 +78,11 @@
       filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.35));
       border-radius: 12px;
     }
+    .nav .brand { color: #fff; }
+    .nav .brand span { color: inherit; }
 
     nav a {
-      color: rgba(255, 255, 255, 0.86);
+      color: rgba(255, 255, 255, 0.92);
       text-decoration: none;
       margin-left: 18px;
       font-size: 14px;
@@ -257,7 +259,7 @@
     footer {
       border-top: 1px solid var(--border);
       padding: 26px 22px 50px;
-      background: rgba(0, 0, 0, 0.35);
+      background: linear-gradient(180deg, rgba(24, 119, 242, 0.06), rgba(125, 243, 198, 0.06));
     }
     .footer-inner {
       max-width: 1100px;
@@ -284,8 +286,8 @@
     <header>
       <div class="nav">
         <a class="brand" href="#top">
-          <img src="logo.jpg" alt="Fluxion logo">
-          <span>Fluxion</span>
+          <img src="logo.jpg" alt="SrotaX logo">
+          <span>SrotaX</span>
         </a>
         <nav aria-label="Primary">
           <a href="#about">About</a>
@@ -294,7 +296,7 @@
           <a href="http://docs.srotax.com/" target="_blank" rel="noreferrer">Docs</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a class="btn" href="#contact">Launch Fluxion</a>
+        <a class="btn" href="#contact">Launch SrotaX</a>
       </div>
     </header>
 
@@ -306,8 +308,8 @@
             <span class="tag">Realtime insights</span>
             <span class="tag">Human-in-the-loop</span>
           </div>
-          <h1 id="hero-title">Fluxion keeps your teams flowing with context-aware automation.</h1>
-          <p>Unify signals, decisions, and workflows into a single adaptive layer. Fluxion routes the right context to the right people, automates repetitive ops, and keeps every runbook auditable.</p>
+          <h1 id="hero-title">SrotaX keeps your teams flowing with context-aware automation.</h1>
+          <p>Unify signals, decisions, and workflows into a single adaptive layer. SrotaX routes the right context to the right people, automates repetitive ops, and keeps every runbook auditable.</p>
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
             <a class="btn" href="#contact">Book a demo</a>
             <a class="btn secondary" href="#platform">See how it works</a>
@@ -317,7 +319,7 @@
           <div class="panel">
             <div>
               <h3>Purpose-built for living systems</h3>
-              <p>Plug in monitoring, ticketing, chat, and data sources. Fluxion creates a living map of your operations so every incident, deployment, or request has instant, trusted context.</p>
+              <p>Plug in monitoring, ticketing, chat, and data sources. SrotaX creates a living map of your operations so every incident, deployment, or request has instant, trusted context.</p>
               <div class="pill">Integrations: PagerDuty · Jira · Slack · GitHub · Datadog</div>
             </div>
             <div class="stat-grid">
@@ -340,8 +342,8 @@
 
       <section id="about" aria-labelledby="about-title" style="display:grid; gap:18px;">
         <div class="section-head">
-          <h2 id="about-title">Why Fluxion</h2>
-          <p>Fluxion fuses observability, collaboration, and action into one surface. Your teams get reliable automation with clear guardrails, not a black box.</p>
+          <h2 id="about-title">Why SrotaX</h2>
+          <p>SrotaX fuses observability, collaboration, and action into one surface. Your teams get reliable automation with clear guardrails, not a black box.</p>
         </div>
         <div class="card-grid">
           <article class="card">
@@ -365,7 +367,7 @@
       <section id="platform" aria-labelledby="platform-title" style="display:grid; gap:18px;">
         <div class="section-head">
           <h2 id="platform-title">Platform in motion</h2>
-          <p>Fluxion is an adaptive control plane that learns from every runbook run, incident, and deployment to keep operations flowing.</p>
+          <p>SrotaX is an adaptive control plane that learns from every runbook run, incident, and deployment to keep operations flowing.</p>
         </div>
         <div class="card-grid">
           <article class="card">
@@ -394,7 +396,7 @@
       <section id="solutions" aria-labelledby="solutions-title" style="display:grid; gap:18px;">
         <div class="section-head">
           <h2 id="solutions-title">Built for your teams</h2>
-          <p>From reliability crews to support leads, Fluxion keeps every team in sync with the same source of context and action.</p>
+          <p>From reliability crews to support leads, SrotaX keeps every team in sync with the same source of context and action.</p>
         </div>
         <div class="card-grid">
           <article class="card">
@@ -418,8 +420,8 @@
       <section id="contact" aria-labelledby="contact-title">
         <div class="panel">
           <div>
-            <h3 id="contact-title">Ready to see Fluxion live?</h3>
-            <p>Schedule a demo to explore how Fluxion adapts to your stack, workflows, and compliance needs. We respond within one business day.</p>
+            <h3 id="contact-title">Ready to see SrotaX live?</h3>
+            <p>Schedule a demo to explore how SrotaX adapts to your stack, workflows, and compliance needs. We respond within one business day.</p>
           </div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
             <a class="btn" href="mailto:hello@fluxion.dev">Book a demo</a>
@@ -433,18 +435,18 @@
       <div class="footer-inner">
         <div>
           <div class="brand">
-            <img src="logo.jpg" alt="Fluxion logo">
-            <span>Fluxion</span>
+            <img src="logo.jpg" alt="SrotaX logo">
+            <span>SrotaX</span>
           </div>
           <div style="margin-top:12px;">Adaptive operations cloud for teams that never stop shipping.</div>
         </div>
         <div>
-          <div><strong style="color:#fff; font-size:13px;">Company</strong></div>
+          <div><strong style="color:var(--text); font-size:13px;">Company</strong></div>
           <div>San Francisco · Remote-first</div>
           <div>hello@fluxion.dev</div>
         </div>
         <div>
-          <div><strong style="color:#fff; font-size:13px;">Links</strong></div>
+          <div><strong style="color:var(--text); font-size:13px;">Links</strong></div>
           <div><a href="#platform" style="color:var(--muted); text-decoration:none;">Platform</a></div>
           <div><a href="#solutions" style="color:var(--muted); text-decoration:none;">Solutions</a></div>
           <div><a href="http://docs.srotax.com/" target="_blank" rel="noreferrer" style="color:var(--muted); text-decoration:none;">Docs</a></div>
