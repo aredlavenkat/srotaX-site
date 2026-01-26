@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SrotaX | Adaptive Operations Cloud</title>
+  <title>SrotaX | Multi-tenant Automation Fabric</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f9fc;
+      --bg: #f3f6fb;
       --panel: #ffffff;
       --card: #ffffff;
       --glow: radial-gradient(circle at 18% 20%, rgba(24, 119, 242, 0.12), transparent 38%),
@@ -60,10 +60,23 @@
       gap: 16px;
     }
 
+    .subbrand {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2f5ff;
+      font-size: 12px;
+      letter-spacing: 0.15px;
+    }
+
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 0;
       text-decoration: none;
       color: var(--text);
       font-family: "Space Grotesk", "Inter", sans-serif;
@@ -72,8 +85,8 @@
     }
 
     .brand img {
-      width: 42px;
-      height: 42px;
+      width: 150px;
+      height: 56px;
       object-fit: contain;
       filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.35));
       border-radius: 12px;
@@ -84,11 +97,23 @@
     nav a {
       color: rgba(255, 255, 255, 0.92);
       text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-      transition: color 0.2s ease, opacity 0.2s ease;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      transition: color 0.2s ease, opacity 0.2s ease, background 0.2s ease;
     }
-    nav a:hover { color: #fff; opacity: 0.95; }
+    nav a:hover { color: #fff; opacity: 1; background: rgba(255, 255, 255, 0.16); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
 
     .btn {
       display: inline-flex;
@@ -160,7 +185,7 @@
       border: 1px solid var(--border);
       color: var(--text);
       font-size: 12px;
-      letter-spacing: 0.15px;
+      letter-spacing: 0.2px;
     }
 
     .stat-grid {
@@ -194,6 +219,11 @@
       color: var(--muted);
       max-width: 520px;
       font-size: 15px;
+    }
+
+    .section {
+      display: grid;
+      gap: 18px;
     }
 
     .card-grid {
@@ -236,7 +266,7 @@
     .panel {
       padding: 22px;
       border-radius: 18px;
-      background: linear-gradient(140deg, rgba(97, 183, 255, 0.14), rgba(125, 243, 198, 0.08));
+      background: linear-gradient(140deg, rgba(97, 183, 255, 0.18), rgba(125, 243, 198, 0.1));
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow: var(--shadow);
       display: grid;
@@ -271,6 +301,84 @@
       font-size: 13px;
     }
 
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.06);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      color: var(--muted);
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .diagram {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 14px;
+      font-family: "Space Grotesk", "Inter", monospace;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow-x: auto;
+      line-height: 1.45;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre;
+    }
+
+    code {
+      font-family: "Space Grotesk", "Inter", monospace;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .highlight-card {
+      padding: 18px;
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.06));
+      border: 1px solid var(--border);
+    }
+
+    .small-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .mini {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 2px 0 0;
+    }
+
+    .link-inline {
+      color: var(--text);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
     @media (max-width: 720px) {
       nav { width: 100%; }
       nav a { margin-left: 12px; }
@@ -285,18 +393,19 @@
   <div class="page">
     <header>
       <div class="nav">
-        <a class="brand" href="#top">
-          <img src="logo.jpg" alt="SrotaX logo">
-          <span>SrotaX</span>
+        <a class="brand"- href="#top" aria-label="SrotaX home">
+          <img src="logo_white.png" alt="SrotaX logo">
         </a>
-        <nav aria-label="Primary">
-          <a href="#about">About</a>
+        <nav class="nav-links" aria-label="Primary">
           <a href="#platform">Platform</a>
-          <a href="#solutions">Solutions</a>
+          <a href="#connectors">Connect</a>
+          <a href="#guardrails">Guard</a>
+          <a href="#resilience">Ops</a>
+          <a href="#architecture">Arch</a>
           <a href="http://docs.srotax.com/" target="_blank" rel="noreferrer">Docs</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Talk</a>
         </nav>
-        <a class="btn" href="#contact">Launch SrotaX</a>
+        <a class="btn" href="#contact">Talk to an architect</a>
       </div>
     </header>
 
@@ -304,116 +413,261 @@
       <section class="hero" aria-labelledby="hero-title">
         <div>
           <div class="tags">
-            <span class="tag">Operations Cloud</span>
-            <span class="tag">Realtime insights</span>
-            <span class="tag">Human-in-the-loop</span>
+            <span class="tag">Multi-tenant SaaS</span>
+            <span class="tag">Temporal-native</span>
+            <span class="tag">Deterministic aggregation</span>
           </div>
-          <h1 id="hero-title">SrotaX keeps your teams flowing with context-aware automation.</h1>
-          <p>Unify signals, decisions, and workflows into a single adaptive layer. SrotaX routes the right context to the right people, automates repetitive ops, and keeps every runbook auditable.</p>
+          <h1 id="hero-title">SrotaX is the production-grade automation fabric for multi-tenant SaaS.</h1>
+          <p>SrotaX fuses deterministic aggregation, resilient streaming, and Temporal workflows into a single platform. Build rules, pipelines, and connectors once—run them safely for every tenant with strict isolation, observability, and zero in-place mutation.</p>
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
-            <a class="btn" href="#contact">Book a demo</a>
+            <a class="btn" href="mailto:hello@srotax.com">Book a demo</a>
             <a class="btn secondary" href="#platform">See how it works</a>
           </div>
         </div>
         <div>
           <div class="panel">
             <div>
-              <h3>Purpose-built for living systems</h3>
-              <p>Plug in monitoring, ticketing, chat, and data sources. SrotaX creates a living map of your operations so every incident, deployment, or request has instant, trusted context.</p>
-              <div class="pill">Integrations: PagerDuty · Jira · Slack · GitHub · Datadog</div>
+              <h3>Deterministic by design</h3>
+              <p>SrotaX’s evaluator enforces strict aggregation semantics, ensuring predictable outcomes across rules, streaming pipelines, and Temporal activities.</p>
+              <div class="pill">Strict typing · IR + visitor pattern · Deterministic replay</div>
             </div>
             <div class="stat-grid">
               <div class="stat">
-                <div class="label">MTTR reduction</div>
-                <div class="value">-43%</div>
+                <div class="label">Tenant isolation</div>
+                <div class="value">Full</div>
               </div>
               <div class="stat">
-                <div class="label">Automated tasks</div>
-                <div class="value">12k+/mo</div>
+                <div class="label">Retries & backoff</div>
+                <div class="value">Built-in</div>
               </div>
               <div class="stat">
-                <div class="label">Confidence score</div>
-                <div class="value">99.2%</div>
+                <div class="label">Connectors</div>
+                <div class="value">Universal</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" aria-labelledby="about-title" style="display:grid; gap:18px;">
+      <section id="platform" aria-labelledby="platform-title" class="section">
         <div class="section-head">
-          <h2 id="about-title">Why SrotaX</h2>
-          <p>SrotaX fuses observability, collaboration, and action into one surface. Your teams get reliable automation with clear guardrails, not a black box.</p>
+          <h2 id="platform-title">Four-layer platform</h2>
+          <p>SrotaX separates evaluation, orchestration, and execution so teams gain determinism, safety, and scale without reinventing workflow engines.</p>
         </div>
         <div class="card-grid">
           <article class="card">
-            <h3>Context that stays fresh</h3>
-            <p>Dynamic knowledge graph keeps services, owners, runbooks, and dependencies linked so responders get instant clarity.</p>
-            <span class="pill">Owner lookups · Runbook recall</span>
+            <h3>SrotaX Core (Aggregation Engine)</h3>
+            <p>Full aggregation operator coverage with strict typing and deterministic evaluation. Generates an internal IR with visitor pattern for predictable rewrites.</p>
+            <span class="pill">Expression tree · Deterministic</span>
           </article>
           <article class="card">
-            <h3>Safe automation</h3>
-            <p>Human-in-the-loop approvals with drift detection and rollback recipes make automation trustworthy by design.</p>
-            <span class="pill">Guardrails · Versioned actions</span>
+            <h3>Rule Engine</h3>
+            <p>Versioned JSON/DSL rules with composition (rule sets/groups), nested expressions, and consistent error semantics. Reusable across pipelines and workflows.</p>
+            <span class="pill">Strongly typed · Composable</span>
           </article>
           <article class="card">
-            <h3>Measurable outcomes</h3>
-            <p>Measure operational fitness with live SLAs, MTTR insights, and adoption metrics for every team and service.</p>
-            <span class="pill">SLO/SLA · MTTR · Adoption</span>
+            <h3>Streaming Engine</h3>
+            <p>Microbatch or streaming pipelines triggered by connectors. Routing, throttling, batching, and DLQ powered by the same evaluator.</p>
+            <span class="pill">Kafka · CDC · Webhooks</span>
+          </article>
+          <article class="card">
+            <h3>Workflow Layer (Temporal)</h3>
+            <p>SrotaX logic runs as Temporal activities. Temporal owns retries, backoff, cancellation, and saga patterns; SrotaX focuses on decisions and connectors.</p>
+            <span class="pill">Deterministic replay</span>
           </article>
         </div>
       </section>
 
-      <section id="platform" aria-labelledby="platform-title" style="display:grid; gap:18px;">
+      <section id="connectors" aria-labelledby="connectors-title" class="section">
         <div class="section-head">
-          <h2 id="platform-title">Platform in motion</h2>
-          <p>SrotaX is an adaptive control plane that learns from every runbook run, incident, and deployment to keep operations flowing.</p>
+          <h2 id="connectors-title">Universal connector architecture</h2>
+          <p>One execution model for every integration. Shared logging, metrics, retries, and error taxonomy keep behavior consistent across tenants.</p>
+        </div>
+        <div class="split">
+          <div class="highlight-card">
+            <div class="eyebrow">Execution types</div>
+            <div class="list" style="padding-left:16px;">
+              <div>http — generic REST/GraphQL</div>
+              <div>javaBean — Spring beans for SDKs/DBs</div>
+              <div>pipelineCall — invoke another pipeline/ruleset</div>
+              <div>httpServer — inbound webhooks</div>
+              <div>polling — periodic pull</div>
+              <div>reactiveStream — Kafka/PubSub/CDC</div>
+              <div>timer — cron/delays</div>
+            </div>
+            <p class="mini">Each connector defines config schema, operations with input/output schemas, and shared retry/timeout policies. Secrets are only referenced by ID.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="eyebrow">Shared behaviors</div>
+            <div class="small-grid">
+              <div class="card" style="padding:12px;">
+                <strong>Retries & timeouts</strong>
+                <div class="mini">Circuit breakers, jittered backoff, tenant-aware limits.</div>
+              </div>
+              <div class="card" style="padding:12px;">
+                <strong>Tracing & logs</strong>
+                <div class="mini">Correlation IDs with tenant, pipeline, workflow IDs.</div>
+              </div>
+              <div class="card" style="padding:12px;">
+                <strong>Metrics</strong>
+                <div class="mini">Latency, throughput, DLQ depth, connector failures.</div>
+              </div>
+              <div class="card" style="padding:12px;">
+                <strong>Error taxonomy</strong>
+                <div class="mini">Permanent vs transient, DLQ or retry with fallback.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="guardrails" aria-labelledby="guardrails-title" class="section">
+        <div class="section-head">
+          <h2 id="guardrails-title">Multi-tenant SaaS guardrails</h2>
+          <p>Isolation and governance are default. Every execution path carries tenant identity, quotas, and audit trails.</p>
         </div>
         <div class="card-grid">
           <article class="card">
-            <h3>Signal intake</h3>
-            <p>Ingest alerts, tickets, chat, and CI/CD events into a unified event fabric with deduping and priority scoring.</p>
-            <span class="pill">Normalized events</span>
+            <h3>Tenant isolation</h3>
+            <p>Separate namespaces for connectors, rules, pipelines, executions, and secrets. Tenant IDs flow into logs, traces, and workflow context.</p>
+            <span class="pill">Zero cross-tenant leakage</span>
           </article>
           <article class="card">
-            <h3>Decision engine</h3>
-            <p>Route with policy, service metadata, and historical outcomes to assign owners, trigger automations, or request approvals.</p>
-            <span class="pill">Policy-driven routing</span>
+            <h3>RBAC & audit</h3>
+            <p>Owner/Admin/Developer/Viewer/Support roles with fine-grained permissions. All config changes are versioned and audit logged.</p>
+            <span class="pill">Least privilege</span>
           </article>
           <article class="card">
-            <h3>Execution layer</h3>
-            <p>Trigger actions in chat, tickets, and code with auditable trails, rollback options, and real-time status updates.</p>
-            <span class="pill">Auditable runs</span>
+            <h3>Secrets management</h3>
+            <p>Per-tenant Vault/KMS-backed storage. Runtime references secret IDs only; sensitive fields masked in logs and traces.</p>
+            <span class="pill">Never log secrets</span>
           </article>
           <article class="card">
-            <h3>Learning loop</h3>
-            <p>Continuously improves playbooks by capturing outcomes, annotating signals, and highlighting gaps in coverage.</p>
-            <span class="pill">Closed-loop feedback</span>
+            <h3>Quotas & limits</h3>
+            <p>Per-tenant caps for events/sec, pipeline runs, connector calls, and storage. Soft/hard limits prevent noisy neighbors.</p>
+            <span class="pill">Adaptive rate limits</span>
           </article>
         </div>
       </section>
 
-      <section id="solutions" aria-labelledby="solutions-title" style="display:grid; gap:18px;">
+      <section id="resilience" aria-labelledby="resilience-title" class="section">
         <div class="section-head">
-          <h2 id="solutions-title">Built for your teams</h2>
-          <p>From reliability crews to support leads, SrotaX keeps every team in sync with the same source of context and action.</p>
+          <h2 id="resilience-title">Resiliency & safety nets</h2>
+          <p>Every layer has clear failure semantics. Temporal covers workflow retries; SrotaX covers connector retries, idempotency, and DLQs.</p>
+        </div>
+        <div class="split">
+          <div class="highlight-card">
+            <div class="eyebrow">Reliability patterns</div>
+            <ul class="list">
+              <li>Jittered backoff with circuit breakers; classify permanent vs transient faults.</li>
+              <li>Idempotent activities and replay-safe evaluation to avoid double-processing.</li>
+              <li>DLQ per tenant with simple replay and visibility metrics.</li>
+              <li>Backpressure for streams: consumer lag, batch sizing, flow control.</li>
+              <li>Partial failure handling with compensating actions and sagas.</li>
+            </ul>
+          </div>
+          <div class="highlight-card">
+            <div class="eyebrow">Operations ready</div>
+            <ul class="list">
+              <li>Health checks and graceful shutdown for long-running streams.</li>
+              <li>Structured logs: tenant, pipeline, workflow, correlation IDs with field masking.</li>
+              <li>Metrics: latency, retries, connector failures, queue lag, DLQ size.</li>
+              <li>Distributed tracing across Temporal, activities, and connectors.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="versioning" aria-labelledby="versioning-title" class="section">
+        <div class="section-head">
+          <h2 id="versioning-title">Versioning & safe change management</h2>
+          <p>Immutable versions and staged releases keep production stable while teams ship fast.</p>
         </div>
         <div class="card-grid">
           <article class="card">
-            <h3>Reliability</h3>
-            <p>Resolve incidents faster with instant ownership, live runbook steps, and automated remediation tickets.</p>
-            <span class="pill">PagerDuty · Slack · Jira</span>
+            <h3>Draft → Published → Deprecated</h3>
+            <p>Rules, pipelines, and connectors are immutable once published. New edits create new versions; traffic canary/blue-green between them.</p>
+            <span class="pill">No surprise mutations</span>
           </article>
           <article class="card">
-            <h3>Platform</h3>
-            <p>Codify platform guardrails once and apply them everywhere: deploy gates, rollout checks, and service standards.</p>
-            <span class="pill">GitHub · Argo · Terraform</span>
+            <h3>Safe rollouts</h3>
+            <p>Dev → Staging → Prod promotion with sample-data tests, dry runs, and diff views before activation.</p>
+            <span class="pill">Rollback ready</span>
           </article>
           <article class="card">
-            <h3>Support</h3>
-            <p>Surface customer context, previous fixes, and on-call paths directly inside tickets and chat.</p>
-            <span class="pill">Zendesk · Linear</span>
+            <h3>Cost & usage visibility</h3>
+            <p>Per-tenant dashboards for rate limits, connector calls, and storage. Chargeback-friendly metrics to spot noisy neighbors.</p>
+            <span class="pill">Transparent usage</span>
           </article>
+        </div>
+      </section>
+
+      <section id="architecture" aria-labelledby="architecture-title" class="section">
+        <div class="section-head">
+          <h2 id="architecture-title">Architecture in motion</h2>
+          <p>Clean separation of evaluator, engines, and orchestration lets SrotaX stay deterministic while scaling horizontally.</p>
+        </div>
+        <div class="diagram" aria-label="SrotaX architecture diagram">
+<pre>
+      ┌──────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+      │  Connectors  │    │   SrotaX Core IR    │    │     Temporal WF      │
+      │ http, kafka, │───▶│ Aggregation engine  │───▶│ Activities, retries, │
+      │ polling, etc │    │ evaluator + typing  │    │ backoff, sagas       │
+      └─────┬────────┘    └──────────┬──────────┘    └──────────┬──────────┘
+            │                        │                          │
+            │                        ▼                          │
+            │                ┌──────────────┐                   │
+            │                │  Rule Engine │ (JSON/DSL,        │
+            │                │  versioned)  │ composition)      │
+            │                └──────┬───────┘                   │
+            │                       ▼                           │
+            │                ┌──────────────┐                   │
+            ▼                │ Streaming    │◀──────────────────┘
+      Tenants/Logs/Secrets   │ Engine       │ microbatch/stream
+      RBAC/Quotas            └──────────────┘ routing, DLQ, HPA
+</pre>
+        </div>
+      </section>
+
+      <section id="examples" aria-labelledby="examples-title" class="section">
+        <div class="section-head">
+          <h2 id="examples-title">Example connector & pipeline</h2>
+          <p>Universal execution model with typed schemas and Temporal-backed delivery.</p>
+        </div>
+        <div class="split">
+          <div class="card">
+            <h3>Connector (http)</h3>
+<pre class="diagram"><code>{
+  "name": "zendesk-search",
+  "execution": { "type": "http" },
+  "configSchema": { "$ref": "#/schemas/zendeskAuth" },
+  "operations": {
+    "searchTickets": {
+      "inputSchema": { "type": "object", "properties": { "query": { "type": "string" } } },
+      "outputSchema": { "type": "array", "items": { "$ref": "#/schemas/ticket" } },
+      "execution": {
+        "method": "GET",
+        "url": "https://{{subdomain}}.zendesk.com/api/v2/search.json",
+        "retry": { "strategy": "jitteredBackoff", "maxAttempts": 5 }
+      }
+    }
+  }
+}</code></pre>
+          </div>
+          <div class="card">
+            <h3>Pipeline invoking rules</h3>
+<pre class="diagram"><code>{
+  "name": "ticket-triage",
+  "trigger": { "type": "reactiveStream", "topic": "tickets" },
+  "steps": [
+    { "type": "ruleSet", "ref": "triage-v3" },
+    { "type": "connector", "ref": "zendesk-search.searchTickets" },
+    { "type": "pipelineCall", "ref": "notify-oncall" }
+  ],
+  "idempotency": { "key": "{{event.id}}" },
+  "dlq": { "topic": "tickets-dlq" }
+}</code></pre>
+          </div>
         </div>
       </section>
 
@@ -421,11 +675,11 @@
         <div class="panel">
           <div>
             <h3 id="contact-title">Ready to see SrotaX live?</h3>
-            <p>Schedule a demo to explore how SrotaX adapts to your stack, workflows, and compliance needs. We respond within one business day.</p>
+            <p>Schedule a deep dive to map SrotaX to your stack, compliance needs, and tenant model. We respond within one business day.</p>
           </div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="btn" href="mailto:hello@fluxion.dev">Book a demo</a>
-            <a class="btn secondary" href="#about">View capabilities</a>
+            <a class="btn" href="mailto:hello@srotax.com">Book a demo</a>
+            <a class="btn secondary" href="#platform">View capabilities</a>
           </div>
         </div>
       </section>
@@ -435,20 +689,21 @@
       <div class="footer-inner">
         <div>
           <div class="brand">
-            <img src="logo.jpg" alt="SrotaX logo">
-            <span>SrotaX</span>
+            <img src="logo_black.png" alt="SrotaX logo">
           </div>
-          <div style="margin-top:12px;">Adaptive operations cloud for teams that never stop shipping.</div>
+          <div style="margin-top:12px;">Deterministic multi-tenant automation with strict evaluation and Temporal orchestration.</div>
         </div>
         <div>
           <div><strong style="color:var(--text); font-size:13px;">Company</strong></div>
           <div>San Francisco · Remote-first</div>
-          <div>hello@fluxion.dev</div>
+          <div>hr@srotax.com</div>
         </div>
         <div>
           <div><strong style="color:var(--text); font-size:13px;">Links</strong></div>
           <div><a href="#platform" style="color:var(--muted); text-decoration:none;">Platform</a></div>
-          <div><a href="#solutions" style="color:var(--muted); text-decoration:none;">Solutions</a></div>
+          <div><a href="#connectors" style="color:var(--muted); text-decoration:none;">Connectors</a></div>
+          <div><a href="#resilience" style="color:var(--muted); text-decoration:none;">Reliability</a></div>
+          <div><a href="#architecture" style="color:var(--muted); text-decoration:none;">Architecture</a></div>
           <div><a href="http://docs.srotax.com/" target="_blank" rel="noreferrer" style="color:var(--muted); text-decoration:none;">Docs</a></div>
           <div><a href="#contact" style="color:var(--muted); text-decoration:none;">Contact</a></div>
         </div>
