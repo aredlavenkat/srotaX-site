@@ -92,3 +92,22 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     resetTimer = setTimeout(() => { button.innerHTML = original; }, 2500);
   });
 });
+
+const shippingDemo = document.getElementById('shipping-demo');
+shippingDemo?.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!shippingDemo.reportValidity()) return;
+  const subtotal = Number(new FormData(shippingDemo).get('subtotal'));
+  document.getElementById('demo-result').textContent = Number.isFinite(subtotal) && subtotal >= 0
+    ? JSON.stringify({ fee: subtotal >= 100 ? 0 : 9, method: 'Standard' }, null, 2)
+    : 'Enter a non-negative subtotal.';
+});
+const walkthrough = document.getElementById('walkthrough-form');
+walkthrough?.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!walkthrough.reportValidity()) return;
+  const data = new FormData(walkthrough);
+  const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\nPolicy to discuss:\n${data.get('policy')}`;
+  window.location.href = `mailto:hello@srotax.com?subject=SrotaX%20Studio%20walkthrough&body=${encodeURIComponent(body)}`;
+  document.getElementById('contact-status').textContent = 'Email draft requested. Send it from your email app; nothing has been submitted by this website.';
+});

@@ -39,3 +39,9 @@ The site uses Google Fonts with system fallbacks. All product images, scripts, a
 Deployment remains the repository's existing push-to-main GitHub Pages workflow. Local editing does not deploy the website.
 
 Screenshots refreshed from the running Studio on October 2, 2026. Editor captures focus on the feature canvas; lifecycle labels in Catalog retain their actual state. No assets were published or saved during capture. Image URLs include content hashes to refresh browser caches.
+
+## Authoring UX refresh (2026-10-16)
+
+The home page now includes a browser-only shipping decision example with explicit input/rule/output. It is not connected to a customer workspace. The walkthrough form opens a mailto draft and does not claim to submit a request. The guide describes change sets, Admin review/merge, Main releases, environment activation and API-key integration. The longer shipments example is the checked-in Studio fixture, not a promise of seeded data in new workspaces.
+
+Preview on port 5180 when Management occupies 8080. Browser checks from the sibling Studio repo: `node scripts/public-site-ux-smoke.cjs` (requires its Playwright dependency and Chrome).

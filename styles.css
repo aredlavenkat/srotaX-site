@@ -22,3 +22,11 @@
 #dialog-image-frame img{width:100%;height:auto}
 
 .header-inner nav a.nav-login{padding:9px 16px;color:#fff;min-height:38px}.header-inner nav a.nav-login:hover,.header-inner nav a.nav-login:focus-visible{color:#fff;background:var(--purple-dark);border-color:var(--purple-dark)}
+
+.demo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; padding:28px; margin:24px 0; border:1px solid #e2e8f0; border-radius:16px; background:#faf9ff; }
+.demo-grid form,.walkthrough-form { display:flex; flex-direction:column; gap:12px; align-items:stretch; }
+.demo-grid input,.walkthrough-form input,.walkthrough-form textarea { font:inherit; padding:12px; border:1px solid #cbd5e1; border-radius:8px; background:white; color:#172033; width:100%; box-sizing:border-box; }
+.demo-grid pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:15px; }
+.walkthrough-form { max-width:640px; margin-top:24px; }
+.walkthrough-form .button,.demo-grid .button { align-self:flex-start; cursor:pointer; }
+@media(max-width:760px) { .demo-grid { grid-template-columns:1fr; padding:20px; } }
