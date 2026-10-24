@@ -45,3 +45,19 @@ Screenshots refreshed from the running Studio on October 2, 2026. Editor capture
 The home page now includes a browser-only shipping decision example with explicit input/rule/output. It is not connected to a customer workspace. The walkthrough form opens a mailto draft and does not claim to submit a request. The guide describes change sets, Admin review/merge, Main releases, environment activation and API-key integration. The longer shipments example is the checked-in Studio fixture, not a promise of seeded data in new workspaces.
 
 Preview on port 5180 when Management occupies 8080. Browser checks from the sibling Studio repo: `node scripts/public-site-ux-smoke.cjs` (requires its Playwright dependency and Chrome).
+
+## Use-case library (2026-10-24)
+
+`use-cases.html` lists nine business decision use cases and four application-integration scenarios. Industry filtering includes cross-industry examples. The homepage features four cases; navigation and footer links open the full library. Examples describe potential applications, not customer deployments or prebuilt templates. Integration scenarios distinguish rule evaluation from messaging, OCR, clinical systems, and bulk data orchestration. Only the existing fulfillment walkthrough is linked as a worked example.
+
+### Screenshot refresh — 2026-10-24
+
+Updated Flow, Decision Table, Decision Tree, Data Contract, and Catalog images from the latest Studio captures in `srotax-docs/docs/images`. Captured Reference Data directly from current Studio using the published sample regional handling fees. Preserved full headers, updated captions and intrinsic dimensions, and refreshed image cache keys.
+
+### How it works — 2026-10-24
+
+Replaced the detailed guide with a product overview covering editors, contracts and models, a shipping policy, reusable subflows, and release/integration. Detailed instructions link to docs.srotax.com. Navigation now says How it works; guide.html remains the page URL.
+
+### Integration page — 2026-10-24
+
+Replaced architecture content with Runtime API, Java HTTP integration, immutable inputs and Local/Output data, reusable dependencies, and release activation. Retained architecture.html URL and updated navigation. Direct engine embedding is not advertised as a verified integration.

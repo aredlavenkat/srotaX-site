@@ -111,3 +111,21 @@ walkthrough?.addEventListener('submit', event => {
   window.location.href = `mailto:hello@srotax.com?subject=SrotaX%20Studio%20walkthrough&body=${encodeURIComponent(body)}`;
   document.getElementById('contact-status').textContent = 'Email draft requested. Send it from your email app; nothing has been submitted by this website.';
 });
+
+const industryFilter = document.getElementById('industry-filter');
+industryFilter?.addEventListener('change', () => {
+  let visible = 0;
+  document.querySelectorAll('.library-grid article').forEach(card => {
+    const industries = card.dataset.industries.split('|');
+    card.hidden = industryFilter.value !== 'all' && !industries.includes(industryFilter.value) && !industries.includes('Cross-industry');
+    if (!card.hidden) visible++;
+  });
+  document.getElementById('use-case-count').textContent = `${visible} ${visible === 1 ? 'example' : 'examples'}`;
+  document.querySelectorAll('.library-grid').forEach(grid => {
+    const empty = !grid.querySelector('article:not([hidden])');
+    grid.hidden = empty;
+    let heading = grid.previousElementSibling;
+    if (heading?.classList.contains('library-intro')) { heading.hidden = empty; heading = heading.previousElementSibling; }
+    if (heading?.classList.contains('library-subtitle')) heading.hidden = empty;
+  });
+});
