@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="294" height="112" viewBox="0 0 294 112" role="img" aria-labelledby="title">
+  <title id="title">SrotaX</title>
+  <text x="16" y="82" fill="#191725" font-family="Times New Roman, Times, serif" font-size="88" font-style="italic" font-weight="400" letter-spacing="-2">Srota</text>
+  <g transform="translate(188 0) scale(3.3)" fill="#6D46C6">
+    <path d="M7 9h6l12 15h-6L7 9Z"/>
+    <path d="M6 25C12 16 20 10 28 6c-7 2-15 6-22 14v5Z"/>
+  </g>
+</svg>
